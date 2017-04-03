@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">Store Print ML</string>
+    <string name="msg_resolve_failed">Não foi possível selecionar a impressora</string>
+    <string name="msg_not_pdf_file">Arquivo informado não está como PDF!</string>
+    <string name="msg_pdf_not_found">Arquivo PDF não encontrado!</string>
+    <string name="msg_download_pdf">Efetuando download do arquivo pdf...</string>
+    <string name="msg_download_pdf_failed">Não foi possível fazer o download do PDF!</string>
+    <string name="msg_connecting_printing">Conectando à impressora...</string>
+    <string name="msg_printing_sent">Enviando impressão...</string>
+    <string name="msg_printing_sent_successfully">Impressão enviada com sucesso!</string>
+
+</resources>
