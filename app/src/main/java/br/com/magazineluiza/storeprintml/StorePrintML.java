@@ -7,7 +7,7 @@ import java.io.File;
 
 import br.com.magazineluiza.storeprintml.interfaces.IAsyncTasks;
 import br.com.magazineluiza.storeprintml.interfaces.IPrinting;
-import br.com.magazineluiza.storeprintml.utils.DownloadFile;
+import br.com.magazineluiza.storeprintml.services.DownloadFile;
 import br.com.magazineluiza.storeprintml.utils.StorePrintHelper;
 import br.com.magazineluiza.storeprintml.views.Printers.DialogPrinters;
 

@@ -1,4 +1,4 @@
-package br.com.magazineluiza.storeprintml.utils;
+package br.com.magazineluiza.storeprintml.services;
 
 import android.app.ProgressDialog;
 import android.content.Context;
