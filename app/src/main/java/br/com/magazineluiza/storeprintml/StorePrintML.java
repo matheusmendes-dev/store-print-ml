@@ -1,5 +1,6 @@
 package br.com.magazineluiza.storeprintml;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AlertDialog;
 
@@ -9,6 +10,7 @@ import br.com.magazineluiza.storeprintml.interfaces.IAsyncTasks;
 import br.com.magazineluiza.storeprintml.interfaces.IPrinting;
 import br.com.magazineluiza.storeprintml.services.DownloadFile;
 import br.com.magazineluiza.storeprintml.utils.StorePrintHelper;
+import br.com.magazineluiza.storeprintml.utils.Utils;
 import br.com.magazineluiza.storeprintml.views.Printers.DialogPrinters;
 
 /**
@@ -22,6 +24,8 @@ public class StorePrintML {
     public static final String TAG = "StorePrint";
 
     public static void printPDF(Context context, File pdfFile, IPrinting iPrinting) {
+
+        Utils.requestPermissions((Activity) context);
 
         CALLBACK_PRINTING = iPrinting;
 
@@ -38,6 +42,8 @@ public class StorePrintML {
     }
 
     public static void printPDF(final Context context, String urlPdf, IPrinting iPrinting) {
+
+        Utils.requestPermissions((Activity) context);
 
         CALLBACK_PRINTING = iPrinting;
 
