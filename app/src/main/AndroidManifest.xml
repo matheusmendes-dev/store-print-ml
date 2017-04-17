@@ -14,6 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity
+            android:label="Selecione uma impressora"
+            android:name=".activities.Printers.PrintersActivity" />
+
     </application>
 
 </manifest>

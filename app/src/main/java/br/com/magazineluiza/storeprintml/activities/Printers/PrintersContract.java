@@ -1,4 +1,4 @@
-package br.com.magazineluiza.storeprintml.views.Printers;
+package br.com.magazineluiza.storeprintml.activities.Printers;
 
 import br.com.magazineluiza.storeprintml.adapters.PrintersAdapter;
 
@@ -6,7 +6,7 @@ import br.com.magazineluiza.storeprintml.adapters.PrintersAdapter;
  * Created by matheusmendes on 24/03/17.
  */
 
-public interface DialogPrintersContract {
+public interface PrintersContract {
 
     interface View {
 

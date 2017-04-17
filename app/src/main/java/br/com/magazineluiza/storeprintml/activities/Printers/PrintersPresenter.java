@@ -1,7 +1,7 @@
-package br.com.magazineluiza.storeprintml.views.Printers;
+package br.com.magazineluiza.storeprintml.activities.Printers;
 
 import android.app.Activity;
-import android.app.Dialog;
+import android.content.Context;
 import android.net.nsd.NsdServiceInfo;
 import android.util.Log;
 
@@ -21,10 +21,7 @@ import br.com.magazineluiza.storeprintml.views.DialogPrinterConfirm;
  * Created by matheusmendes on 24/03/17.
  */
 
-public class DialogPrintersPresenter implements DialogPrintersContract.Presenter, IPrinters {
-
-    private Activity mActivity;
-    private Dialog mDialog;
+public class PrintersPresenter implements PrintersContract.Presenter, IPrinters {
 
     private PrintersAdapter mAdapter;
     private List<PrinterVO> mPrinterList;
@@ -32,20 +29,18 @@ public class DialogPrintersPresenter implements DialogPrintersContract.Presenter
 
     private NsdHelper mNsdHelper;
 
-    private DialogPrintersContract.View mView;
+    private PrintersContract.View mView;
 
-    public DialogPrintersPresenter(DialogPrintersContract.View view, Activity activity) {
+    public PrintersPresenter(PrintersContract.View view) {
 
         mView = view;
-        mDialog = (Dialog) view;
-        mActivity = activity;
 
     }
 
     @Override
     public void onCreate() {
 
-        mNsdHelper = new NsdHelper(mActivity, this);
+        mNsdHelper = new NsdHelper((Activity) mView, this);
 
     }
 
@@ -66,7 +61,9 @@ public class DialogPrintersPresenter implements DialogPrintersContract.Presenter
             @Override
             public void onItemClick(PrinterVO printerVO) {
 
-                mView.showProgress(mActivity.getString(R.string.msg_connecting_printing));
+                Context _context = (Context) mView;
+
+                mView.showProgress(_context.getString(R.string.msg_connecting_printing));
 
                 mPrinter = printerVO;
 
@@ -145,7 +142,7 @@ public class DialogPrintersPresenter implements DialogPrintersContract.Presenter
 
             mPrinter = null;
 
-            mView.showMessage(mActivity.getString(R.string.msg_resolve_failed));
+            mView.showMessage(((Context) mView).getString(R.string.msg_resolve_failed));
 
         } else {
 
@@ -155,10 +152,8 @@ public class DialogPrintersPresenter implements DialogPrintersContract.Presenter
 
             mPrinter.setIp(nsdServiceInfo.getHost().getHostAddress());
 
-            DialogPrinterConfirm _dialog = new DialogPrinterConfirm(mActivity, R.style.AppThemeDialog, mPrinter);
+            DialogPrinterConfirm _dialog = new DialogPrinterConfirm((Context) mView, R.style.AppThemeDialog, mPrinter);
             _dialog.show();
-
-            mDialog.dismiss();
 
         }
 

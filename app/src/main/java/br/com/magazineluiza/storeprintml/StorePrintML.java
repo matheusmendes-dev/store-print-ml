@@ -2,16 +2,17 @@ package br.com.magazineluiza.storeprintml;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 
 import java.io.File;
 
+import br.com.magazineluiza.storeprintml.activities.Printers.PrintersActivity;
 import br.com.magazineluiza.storeprintml.interfaces.IAsyncTasks;
 import br.com.magazineluiza.storeprintml.interfaces.IPrinting;
 import br.com.magazineluiza.storeprintml.services.DownloadFile;
 import br.com.magazineluiza.storeprintml.utils.StorePrintHelper;
 import br.com.magazineluiza.storeprintml.utils.Utils;
-import br.com.magazineluiza.storeprintml.views.Printers.DialogPrinters;
 
 /**
  * Created by matheusmendes on 14/03/17.
@@ -76,8 +77,8 @@ public class StorePrintML {
 
         StorePrintHelper.PDF_FILE = pdfFile;
 
-        DialogPrinters _dialogPrinters = new DialogPrinters(context, R.style.AppThemeDialog);
-        _dialogPrinters.show();
+        Intent _intent = new Intent(context, PrintersActivity.class);
+        context.startActivity(_intent);
 
     }
 
